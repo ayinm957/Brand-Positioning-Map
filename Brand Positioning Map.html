@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research: Car Brands</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .slide-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .slide {
+            padding: 3rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .slide:last-child {
+            border-bottom: none;
+        }
+        .slide-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        .slide-subtitle {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .positioning-map {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            border: 2px solid #6b7280;
+            border-radius: 0.5rem;
+        }
+        .axis {
+            position: absolute;
+            background-color: #6b7280;
+        }
+        .x-axis {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .y-axis {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        .axis-label {
+            position: absolute;
+            color: #374151;
+            font-weight: 600;
+            background-color: white;
+            padding: 0 0.5rem;
+        }
+        .label-top { top: -1.5rem; left: 50%; transform: translateX(-50%); }
+        .label-bottom { bottom: -1.5rem; left: 50%; transform: translateX(-50%); }
+        .label-left { left: -1.5rem; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+        .label-right { right: -1.5rem; top: 50%; transform: translateY(-50%) rotate(90deg); }
+
+        .brand-logo {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .brand-list h3 {
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .brand-list li {
+            background-color: #f9fafb;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <!-- Slide 1: Title -->
+    <div class="slide text-center bg-gray-800 text-white">
+        <h1 class="text-4xl font-bold mb-2">Market Research</h1>
+        <h2 class="text-2xl font-light">A Competitive Analysis of Car Brands</h2>
+    </div>
+
+    <!-- Slide 2: Brand Positioning Map -->
+    <div class="slide">
+        <h2 class="slide-title text-center">Brand Positioning Map</h2>
+        <p class="slide-subtitle text-center">Analyzing how car brands are perceived in the market based on price and primary focus.</p>
+
+        <div class="relative w-full max-w-4xl mx-auto border-2 border-gray-500 rounded-lg p-16 min-h-[600px]">
+            <!-- Axes -->
+            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-500"></div>
+            <div class="absolute left-1/2 top-0 w-0.5 h-full bg-gray-500"></div>
+
+            <!-- Axis Labels -->
+            <span class="absolute top-2 left-1/2 -translate-x-1/2 bg-white px-2 font-semibold text-gray-700 text-lg">Performance / Sporty</span>
+            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white px-2 font-semibold text-gray-700 text-lg">Practical / Reliable</span>
+            <span class="absolute left-2 top-1/2 -translate-y-1/2 -rotate-90 bg-white px-2 font-semibold text-gray-700 text-lg">Affordable</span>
+            <span class="absolute right-2 top-1/2 -translate-y-1/2 rotate-90 bg-white px-2 font-semibold text-gray-700 text-lg">Luxury</span>
+
+            <!-- Brands - Placeholders with text -->
+            <div class="absolute" style="top: 15%; left: 85%;"><span class="font-bold text-red-600">Ferrari</span></div>
+            <div class="absolute" style="top: 20%; left: 75%;"><span class="font-bold text-yellow-500">Porsche</span></div>
+            <div class="absolute" style="top: 30%; left: 70%;"><span class="font-bold text-blue-700">BMW</span></div>
+            <div class="absolute" style="top: 25%; left: 25%;"><span class="font-bold text-red-500">Mazda</span></div>
+
+            <div class="absolute" style="top: 70%; left: 15%;"><span class="font-bold text-gray-600">Honda</span></div>
+            <div class="absolute" style="top: 85%; left: 25%;"><span class="font-bold text-blue-800">Toyota</span></div>
+             <div class="absolute" style="top: 80%; left: 35%;"><span class="font-bold text-green-700">Subaru</span></div>
+
+            <div class="absolute" style="top: 65%; left: 80%;"><span class="font-bold text-gray-800">Lexus</span></div>
+            <div class="absolute" style="top: 75%; left: 65%;"><span class="font-bold text-black">Mercedes</span></div>
+            <div class="absolute" style="top: 85%; left: 75%;"><span class="font-bold text-blue-600">Volvo</span></div>
+            
+            <div class="absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"><span class="font-bold text-blue-900">Ford / VW</span></div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Brand Personality -->
+    <div class="slide">
+        <h2 class="slide-title text-center">Elements of Brand Personality</h2>
+        <p class="slide-subtitle text-center">These are even more details for these brands to make show why they are where they are in the map. (Pls give extending)</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div class="brand-list text-center p-4 border rounded-lg">
+                <h3 class="text-xl font-semibold mb-2 text-green-600">Sincerity</h3>
+                <p class="text-sm text-gray-600 mb-4">(Down-to-earth, honest, wholesome)</p>
+                <ul>
+                    <li>Honda</li>
+                    <li>Toyota</li>
+                    <li>Subaru</li>
+                </ul>
+            </div>
+            <div class="brand-list text-center p-4 border rounded-lg">
+                <h3 class="text-xl font-semibold mb-2 text-red-600">Excitement</h3>
+                <p class="text-sm text-gray-600 mb-4">(Daring, spirited, imaginative)</p>
+                <ul>
+                    <li>Ferrari</li>
+                    <li>Lamborghini</li>
+                    <li>Porsche</li>
+                </ul>
+            </div>
+            <div class="brand-list text-center p-4 border rounded-lg">
+                <h3 class="text-xl font-semibold mb-2 text-blue-600">Competence</h3>
+                <p class="text-sm text-gray-600 mb-4">(Reliable, intelligent, successful)</p>
+                <ul>
+                    <li>Mercedes-Benz</li>
+                    <li>Audi</li>
+                    <li>BMW</li>
+                </ul>
+            </div>
+            <div class="brand-list text-center p-4 border rounded-lg">
+                <h3 class="text-xl font-semibold mb-2 text-purple-600">Sophistication</h3>
+                <p class="text-sm text-gray-600 mb-4">(Upper class, charming, glamorous)</p>
+                <ul>
+                    <li>Rolls-Royce</li>
+                    <li>Bentley</li>
+                    <li>Lexus</li>
+                </ul>
+            </div>
+            <div class="brand-list text-center p-4 border rounded-lg">
+                <h3 class="text-xl font-semibold mb-2 text-orange-600">Ruggedness</h3>
+                <p class="text-sm text-gray-600 mb-4">(Outdoorsy, tough, durable)</p>
+                <ul>
+                    <li>Jeep</li>
+                    <li>Land Rover</li>
+                    <li>Ford (Trucks)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
